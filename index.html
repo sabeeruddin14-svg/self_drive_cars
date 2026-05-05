@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cargo Self Drive Cars and Rentals - Premium Self Drive Rentals</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml;base64,[BASE64_LOGO_HERE]" type="image/svg+xml">
+</head>
+
+<body>
+<!-- Preloader -->
+<div id="preloader">
+  <div class="preloader-spinner"></div>
+  <div class="preloader-text">CARGO SELF DRIVE</div>
+</div>
+
+<!-- Logo SVG Inline -->
+<svg id="logo" class="logo" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 10px; left: 20px;">
+  <path d="M20 40 Q30 30 50 35 L160 35 Q170 30 180 35 L190 40 L170 45 Q160 50 140 45 L60 45 Q50 50 40 45 L20 40 Z" fill="#1e3a8a" stroke="white" stroke-width="2"/>
+  <rect x="50" y="30" width="30" height="10" rx="3" fill="#3b82f6" opacity="0.8"/>
+  <rect x="120" y="30" width="30" height="10" rx="3" fill="#3b82f6" opacity="0.8"/>
+  <circle cx="45" cy="48" r="6" fill="#1e293b" stroke="white" stroke-width="1"/>
+  <circle cx="155" cy="48" r="6" fill="#1e293b" stroke="white" stroke-width="1"/>
+  <text x="105" y="28" font-family="Arial" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Cargo</text>
+  <text x="105" y="42" font-family="Arial" font-size="11" fill="#3b82f6" text-anchor="middle">Self Drive Cars</text>
+</svg>
+
+<nav>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#cars">Cars</a></li>
+    <li><a href="#booking">Book Now</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+</nav>
+
+<section id="home" class="hero">
+  <h1>cargo self drive cars </h1>
+  <h1>Drive Your Journey with Cargo</h1>
+  <p>Affordable Self Drive Cars at Your Fingertips</p>
+  <div class="btn-group">
+    <a href="#booking" class="btn btn-primary">Book Now</a>
+    <a href="#cars" class="btn btn-secondary">View Cars</a>
+  </div>
+  <div class="scroll-down" onclick="document.getElementById('cars').scrollIntoView({behavior:'smooth'})"></div>
+</section>
+
+<section id="cars" class="container">
+  <h2 class="section-title reveal">Our Premium Fleet</h2>
+  <div class="cars" id="carList"></div>
+</section>
+
+<section id="booking" class="booking-form reveal">
+  <h2 class="section-title">Quick Booking</h2>
+  <div class="form-group">
+    <input type="text" id="name" placeholder="Full Name *" required>
+  </div>
+  <div class="form-group">
+    <input type="tel" id="phone" placeholder="Phone Number *" required>
+  </div>
+  <div class="form-group">
+    <input type="date" id="date" required>
+  </div>
+  <div class="form-group">
+    <input type="text" id="car" placeholder="Car Model *" required>
+  </div>
+  <button class="submit-btn" onclick="submitBooking()">Confirm Booking</button>
+  <p style="font-size: 0.9rem; margin-top: 1rem; color: var(--text);">📧 Confirmation sent to WhatsApp & Email | Instant Response</p>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <h2 class="section-title reveal">What Our Customers Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <p>"Best self drive experience! Kia Sonet was perfect for our weekend trip."</p>
+        <cite>— Rajesh K.</cite>
+      </div>
+      <div class="testimonial">
+        <p>"Clean cars, easy booking via WhatsApp. Highly recommend for families."</p>
+        <cite>— Priya S.</cite>
+      </div>
+      <div class="testimonial">
+        <p>"Thar rental made our adventure unforgettable. Great service!"</p>
+        <cite>— Arjun M.</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <div class="container">
+    <h2 class="section-title reveal" style="color: white;">Contact Our Team</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Syed Sabeer</h3>
+        <a href="tel:+919030574786" class="call-btn">📞 Call 9030574786</a>
+      </div>
+      <div class="contact-card">
+        <h3>Sonu</h3>
+        <a href="tel:+917013999493" class="call-btn">📞 Call 7013999493</a>
+      </div>
+      <div class="contact-card">
+        <h3>Sameer</h3>
+        <a href="tel:+919959132832" class="call-btn">📞 Call 9959132832</a>
+      </div>
+      <div class="contact-card">
+        <h3>Shakeer</h3>
+        <a href="tel:+917780382228" class="call-btn">📞 Call 7780382228</a>
+      </div>
+      <div class="contact-card">
+        <h3>Danush</h3>
+        <a href="tel:+916303484814" class="call-btn">📞 Call 6303484814</a>
+      </div>
+      <div class="contact-card">
+        <h3>Irshad</h3>
+        <a href="tel:+917981765550" class="call-btn">📞 Call 7981765550</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="map-container reveal">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3810.843!2d80.0!3d14.44!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a037!2sNellore%2C+Andhra+Pradesh!5e0!3m2!1sen!2sin!4v169!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+</section>
+
+<section id="faq" class="faq">
+  <div class="container">
+    <h2 class="section-title reveal">Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Is driving license required?</span>
+        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="faq-answer">Yes, valid driving license is mandatory for all drivers. Minimum 1 year driving experience required.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>What is the fuel policy?</span>
+        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="faq-answer">Full to full fuel policy. Return car with same fuel level as pickup.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>What are the booking rules?</span>
+        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="faq-answer">Minimum 24 hours advance booking. Cancellation free up to 4 hours before pickup. Security deposit required.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Pickup locations?</span>
+        <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="faq-answer">Railway Station, Airport, Hotel delivery, or Kottamitta office. Extra charges may apply.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Cargo Self Drive Cars and Rentals. All rights reserved. | <a href="#booking">Book Now</a></p>
+</footer>
+
+<!-- Floating WhatsApp -->
+<div class="floating-whatsapp" onclick="floatingWhatsApp()">
+  💬
+</div>
+
+<!-- Back to Top -->
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<script>
+// Car data exactly as spec
+const cars = [
+  {name: 'Kia Carens', price: 3000},
+  {name: 'Kia Seltos', price: 2300},
+  {name: 'Kia Sonet', price: 2300},
+  {name: 'Ertiga CNG', price: 3000},
+  {name: 'Hyundai i20', price: 2200},
+  {name: 'Swift', price: 2000},
+  {name: 'Mahindra Thar', price: 4500},
+  {name: 'Fronx CNG', price: 2300},
+  {name: 'Tata Sierra', price: 2300},
+  {name: 'Baleno', price: 2200},
+  {name: 'Glanza', price: 2200},
+  {name: 'Innova Crysta', price: 3500}
+];
+
+// Load cars
+function initCars() {
+  const carList = document.getElementById('carList');
+  cars.forEach((car, index) => {
+    const div = document.createElement('div');
+    div.className = 'car';
+    div.style.transitionDelay = (index * 0.08) + 's';
+    div.innerHTML = `
+      <div class="img-wrap">
+        <img src="https://source.unsplash.com/400x300/?${car.name.replace(' ', '+')},car" alt="${car.name}" loading="lazy">
+      </div>
+      <div class="car-content">
+        <h3>${car.name}</h3>
+        <p class="price">₹${car.price}/day</p>
+        <button class="car-btn" onclick="quickBook('${car.name}')">Book on WhatsApp</button>
+      </div>`;
+    carList.appendChild(div);
+  });
+}
+
+// FAQ toggle
+function initFAQ() {
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      q.parentElement.classList.toggle('faq-open');
+    });
+  });
+}
+
+// Intersection Observer for reveal animations
+function initObserver() {
+  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .section-title, .car, .testimonial, .contact-card, .faq-item, .map-container').forEach(el => {
+    observer.observe(el);
+  });
+}
+
+// Navbar scroll effect
+function initNavbar() {
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+}
+
+// Back to top visibility
+function initBackToTop() {
+  const btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 600) {
+      btn.classList.add('show');
+    } else {
+      btn.classList.remove('show');
+    }
+  });
+}
+
+// Preloader
+function initPreloader() {
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('preloader').classList.add('hidden');
+    }, 800);
+  });
+}
+
+// Quick book WhatsApp
+function quickBook(carName) {
+  const date = document.getElementById('date').value || new Date().toISOString().split('T')[0];
+  const name = document.getElementById('name').value || 'Customer';
+  const text = `Hello, I want to book ${carName} on ${date} - Name: ${name}`;
+  const url = `https://wa.me/919030574786?text=${encodeURIComponent(text)}`;
+  window.open(url, '_blank');
+}
+
+// Main booking form
+function submitBooking() {
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const date = document.getElementById('date').value;
+  const car = document.getElementById('car').value.trim();
+
+  if (!name || !phone || !date || !car) {
+    alert('Please fill all fields');
+    return;
+  }
+
+  // WhatsApp confirmation
+  const text = `🚗 NEW BOOKING CONFIRMATION 🚗%0A%0ACar: ${car}%0ADate: ${date}%0ACustomer: ${name}%0APhone: ${phone}%0A%0A📧 We will send email confirmation shortly. Please await call.`;
+  const whatsappUrl = `https://wa.me/919030574786?text=${encodeURIComponent(text)}`;
+
+  // Email confirmation (mailto)
+  const emailSubject = `Cargo Self Drive Booking - ${name}`;
+  const emailBody = `Dear ${name},%0A%0AThank you for booking with Cargo Self Drive Cars and Rentals!%0A%0ABooking Details:%0A- Car: ${car}%0A- Date: ${date}%0A- Phone: ${phone}%0A%0AOur team will contact you within 30 mins to confirm & pickup details.%0A%0ABest,%0ACargo Self Drive Cars Team%0A📞 9030574786`;
+  const emailUrl = `mailto:nelloreselfdrive@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+  // Open both
+  window.open(whatsappUrl, '_blank');
+  window.open(emailUrl, '_blank');
+
+  alert('✅ Booking submitted! Opening WhatsApp & Email confirmation. Team calling soon.');
+}
+
+// Floating WhatsApp
+function floatingWhatsApp() {
+  const text = 'Hello, I want to book a self drive car';
+  window.open(`https://wa.me/919030574786?text=${encodeURIComponent(text)}`, '_blank');
+}
+
+// Initialize everything
+document.addEventListener('DOMContentLoaded', () => {
+  initCars();
+  initFAQ();
+  initObserver();
+  initNavbar();
+  initBackToTop();
+  initPreloader();
+});
+</script>
+
+</body>
+</html>
