@@ -4,7 +4,7 @@
   --secondary: #3b82f6;
   --bg: #f8fafc;
   --card: #ffffff;
-  --text: #1e293b;
+  --text: #3c6dbb;
   --light: #e2e8f0;
 }
 
@@ -43,7 +43,7 @@ body {
   width: 60px;
   height: 60px;
   border: 4px solid rgba(255,255,255,0.2);
-  border-top-color: #fff;
+  border-top-color: #150a0a;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -80,12 +80,36 @@ nav.scrolled {
   padding: 0.6rem 0;
   box-shadow: 0 8px 32px rgba(0,0,0,0.2);
 }
+nav .nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+nav .nav-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+nav .nav-logo {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  display: block;
+}
+
 nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
   gap: 2rem;
 }
+
 nav a {
   color: white;
   text-decoration: none;
@@ -171,8 +195,9 @@ nav a:hover::after {
 }
 .btn-primary {
   background: var(--secondary);
-  color: white;
+  color: black;
 }
+
 .btn-primary::before {
   content: '';
   position: absolute;
@@ -195,10 +220,11 @@ nav a:hover::after {
 }
 .btn-secondary:hover {
   background: white;
-  color: var(--primary);
+  color: black;
   transform: translateY(-3px);
   box-shadow: 0 10px 30px rgba(255,255,255,0.2);
 }
+
 
 /* Scroll Down Indicator */
 .scroll-down {
@@ -711,7 +737,7 @@ nav a:hover::after {
   to { box-shadow: 0 4px 30px rgba(37,211,102,0.7), 0 0 20px rgba(37,211,102,0.3); }
 }
 
-/* Logo */
+/* Legacy Logo (was used for top-left standalone logo; kept for compatibility) */
 .logo {
   width: 50px;
   height: 50px;
@@ -721,6 +747,7 @@ nav a:hover::after {
 .logo:hover {
   transform: scale(1.1) rotate(-5deg);
 }
+
 
 /* Footer */
 footer {

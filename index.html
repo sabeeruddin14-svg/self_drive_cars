@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cargo Self Drive Cars and Rentals - Premium Self Drive Rentals</title>
 <link rel="stylesheet" href="style.css">
-<link rel="icon" href="data:image/svg+xml;base64,[BASE64_LOGO_HERE]" type="image/svg+xml">
+<link rel="icon" href="./carimages/LOGO.png" type="image/png">
 </head>
 
 <body>
@@ -15,8 +15,14 @@
   <div class="preloader-text">CARGO SELF DRIVE</div>
 </div>
 
-<!-- Logo SVG Inline -->
-<svg id="logo" class="logo" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 10px; left: 20px;">
+<!-- Navbar Logo (moved inside <nav>) -->
+
+
+<!-- (Old inline SVG kept commented) -->
+
+<svg id="logo-svg" class="logo" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 10px; left: 20px;">
+
+
   <path d="M20 40 Q30 30 50 35 L160 35 Q170 30 180 35 L190 40 L170 45 Q160 50 140 45 L60 45 Q50 50 40 45 L20 40 Z" fill="#1e3a8a" stroke="white" stroke-width="2"/>
   <rect x="50" y="30" width="30" height="10" rx="3" fill="#3b82f6" opacity="0.8"/>
   <rect x="120" y="30" width="30" height="10" rx="3" fill="#3b82f6" opacity="0.8"/>
@@ -27,19 +33,32 @@
 </svg>
 
 <nav>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#cars">Cars</a></li>
-    <li><a href="#booking">Book Now</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#faq">FAQ</a></li>
-  </ul>
+  <div class="nav-inner">
+    <a href="#home" class="nav-brand" aria-label="Cargo Self Drive Home">
+      <img class="nav-logo" src="./carimages/LOGO.png" alt="Cargo Self Drive">
+    </a>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#cars">Cars</a></li>
+      <li><a href="#booking">Book Now</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </div>
 </nav>
 
 <section id="home" class="hero">
   <h1>cargo self drive cars </h1>
-  <h1>Drive Your Journey with Cargo</h1>
+  <h1>
+    Drive Your Journey with <span id="typingTarget"></span>
+  </h1>
+
   <p>Affordable Self Drive Cars at Your Fingertips</p>
+
+  <p class="hero-points">✅ Driver Available &nbsp;|&nbsp; ✅ Home Delivery Available &nbsp;|&nbsp; ✅ Easy Booking via WhatsApp</p>
+
+
   <div class="btn-group">
     <a href="#booking" class="btn btn-primary">Book Now</a>
     <a href="#cars" class="btn btn-secondary">View Cars</a>
@@ -173,20 +192,60 @@
 <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
 <script>
-// Car data exactly as spec
+// Typing animation for hero heading (no React deps)
+const typingWords = ["Cars", "Self Drive", "Drive & Explore"];
+let typingWordIndex = 0;
+let typingCharIndex = 0;
+let typingIsDeleting = false;
+let typingTimer = null;
+
+function initTypingHero() {
+  const target = document.getElementById('typingTarget');
+  if (!target) return;
+
+  function tick() {
+    const currentWord = typingWords[typingWordIndex % typingWords.length];
+
+    if (!typingIsDeleting) {
+      typingCharIndex++;
+      target.textContent = currentWord.slice(0, typingCharIndex);
+      if (typingCharIndex === currentWord.length) {
+        typingIsDeleting = true;
+        typingTimer = setTimeout(tick, 1500);
+        return;
+      }
+      typingTimer = setTimeout(tick, 75);
+    } else {
+      typingCharIndex--;
+      target.textContent = currentWord.slice(0, typingCharIndex);
+      if (typingCharIndex === 0) {
+        typingIsDeleting = false;
+        typingWordIndex++;
+      }
+      typingTimer = setTimeout(tick, 30);
+    }
+  }
+
+  typingTimer = setTimeout(tick, 500);
+}
+
+// Start all animations
+document.addEventListener('DOMContentLoaded', () => {
+  initTypingHero();
+});
+
+// Car data (use local images from /carimages)
+
 const cars = [
-  {name: 'Kia Carens', price: 3000},
-  {name: 'Kia Seltos', price: 2300},
-  {name: 'Kia Sonet', price: 2300},
-  {name: 'Ertiga CNG', price: 3000},
-  {name: 'Hyundai i20', price: 2200},
-  {name: 'Swift', price: 2000},
-  {name: 'Mahindra Thar', price: 4500},
-  {name: 'Fronx CNG', price: 2300},
-  {name: 'Tata Sierra', price: 2300},
-  {name: 'Baleno', price: 2200},
-  {name: 'Glanza', price: 2200},
-  {name: 'Innova Crysta', price: 3500}
+
+  { name: 'Kia Carens', price: 3000, image: './carimages/kia carens.webp' },
+  { name: 'Ertiga CNG', price: 3000, image: './carimages/ertiga cng.jpg' },
+  { name: 'Innova Crysta', price: 3500, image: './carimages/innova crysta.jpg' },
+  { name: 'Mahindra Thar', price: 4500, image: './carimages/mahindra thar.jpg' },
+  { name: 'Baleno', price: 2200, image: './carimages/Maruti-Suzuki-Baleno-2026.jpg' },
+  { name: 'Fronx', price: 2300, image: './carimages/Maruti-Suzuki-Fronx.jpg' },
+  { name: 'Swift', price: 2000, image: './carimages/swift.jpg' },
+  { name: 'Glanza', price: 2200, image: './carimages/52436_2019_Toyota_Glanza_8.jpg' }
 ];
 
 // Load cars
@@ -196,18 +255,24 @@ function initCars() {
     const div = document.createElement('div');
     div.className = 'car';
     div.style.transitionDelay = (index * 0.08) + 's';
+
+    // Encode spaces safely for file URLs
+    const imgSrc = (car.image || '').replace(/ /g, '%20');
+
     div.innerHTML = `
       <div class="img-wrap">
-        <img src="https://source.unsplash.com/400x300/?${car.name.replace(' ', '+')},car" alt="${car.name}" loading="lazy">
+        <img src="${imgSrc}" alt="${car.name}" loading="lazy">
       </div>
       <div class="car-content">
         <h3>${car.name}</h3>
         <p class="price">₹${car.price}/day</p>
         <button class="car-btn" onclick="quickBook('${car.name}')">Book on WhatsApp</button>
       </div>`;
+
     carList.appendChild(div);
   });
 }
+
 
 // FAQ toggle
 function initFAQ() {
